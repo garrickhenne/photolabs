@@ -5,8 +5,8 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
   const photoItems = props.data.map(photoData => {
-    return <li key={ photoData.id }><PhotoListItem data={ photoData }/></li>
-  })
+    return <PhotoListItem key={ photoData.id } data={ photoData }/>
+  });
 
   return (
     <ul className="photo-list">

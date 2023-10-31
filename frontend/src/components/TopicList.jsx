@@ -5,8 +5,8 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
   const formattedTopics = props.data.map(topic => {
-    return <li key={ topic.id }><TopicListItem data={ topic }/></li>
-  })
+    return <TopicListItem key={ topic.id } data={ topic }/>
+  });
 
   return (
     <div className="top-nav-bar__topic-list">
