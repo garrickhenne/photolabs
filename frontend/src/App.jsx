@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute toggleShowDetailsModal={ toggleShowDetailsModal } />
-      {showDetailsModal && <PhotoDetailsModal /> }
+      {showDetailsModal && <PhotoDetailsModal toggleShowDetailsModal={ toggleShowDetailsModal }/> }
     </div>
   );
 };
