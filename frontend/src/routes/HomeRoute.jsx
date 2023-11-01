@@ -5,7 +5,7 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import photos from 'mocks/photos';
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
   const [likes, setLikes] = useState([]);
 
   const addLikeId = (id) => {
@@ -15,7 +15,7 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       <TopNavigation likes={ likes }/>
-      <PhotoList data={ photos } addLikeId={ addLikeId }/>
+      <PhotoList data={ photos } addLikeId={ addLikeId } toggleShowDetailsModal={ props.toggleShowDetailsModal }/>
     </div>
   );
 };
