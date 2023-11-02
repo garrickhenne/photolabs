@@ -9,7 +9,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation likes={ props.likes }/>
-      <PhotoList data={ photos } addLikeId={ props.addLikeId } toggleShowDetailsModal={ props.toggleShowDetailsModal }/>
+      <PhotoList data={ photos } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ props.toggleShowDetailsModal }/>
     </div>
   );
 };

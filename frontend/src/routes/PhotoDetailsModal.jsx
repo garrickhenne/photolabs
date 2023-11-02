@@ -17,7 +17,7 @@ const PhotoDetailsModal = (props) => {
 
       <div className="photo-details-modal__images">
 
-        <PhotoFavButton addLikeId={ props.addLikeId } id={ id } />
+        <PhotoFavButton handleLikeId={ props.handleLikeId } id={ id } />
         <img src={ full } alt="Enlarged version of clicked image" className='photo-details-modal__image'/>
         
         <div className='photo-details-modal__header'>

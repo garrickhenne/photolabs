@@ -10,7 +10,14 @@ const App = () => {
   const [modalPhotoData, setModalPhotoData] = useState({});
   const [likes, setLikes] = useState([]);
 
-  const addLikeId = (id) => {
+  const handleLikeId = (id) => {
+    // Check if id already exists. If it does then remove it.
+    if (likes.includes(id)) {
+      setLikes(likes.filter(like => like !== id));
+      return;
+    }
+
+    // Otherwise add the liked id.
     setLikes([...likes, id]);
   };
 
@@ -21,8 +28,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute toggleShowDetailsModal={ toggleShowDetailsModal } likes={ likes } addLikeId={ addLikeId } />
-      {showDetailsModal && modalPhotoData && <PhotoDetailsModal toggleShowDetailsModal={ toggleShowDetailsModal } data={ modalPhotoData } addLikeId={ addLikeId } /> }
+      <HomeRoute toggleShowDetailsModal={ toggleShowDetailsModal } likes={ likes } handleLikeId={ handleLikeId } />
+      {showDetailsModal && modalPhotoData && <PhotoDetailsModal toggleShowDetailsModal={ toggleShowDetailsModal } data={ modalPhotoData } handleLikeId={ handleLikeId } /> }
     </div>
   );
 };
