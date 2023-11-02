@@ -3,33 +3,32 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import { useApplicationData } from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const [showDetailsModal, setShowDetailsModal] = useState(false);
-  const [modalPhotoData, setModalPhotoData] = useState({});
-  const [likes, setLikes] = useState([]);
+  const {
+    state,
+    onPhotoSelect,
+    updateToFavPhotoIds
+  } = useApplicationData();
 
-  const handleLikeId = (id) => {
-    // Check if id already exists. If it does then remove it.
-    if (likes.includes(id)) {
-      setLikes(likes.filter(like => like !== id));
-      return;
-    }
-
-    // Otherwise add the liked id.
-    setLikes([...likes, id]);
+  const homeRouteProps = {
+    likes: state.likes,
+    handleLikeId: updateToFavPhotoIds,
+    toggleShowDetailsModal: onPhotoSelect
   };
 
-  const toggleShowDetailsModal = (photoData) => {
-    setModalPhotoData({ ...photoData});
-    setShowDetailsModal(!showDetailsModal);
+  const photoDetailsModalProps = {
+    toggleShowDetailsModal: onPhotoSelect,
+    data: state.modalPhotoData,
+    handleLikeId: updateToFavPhotoIds
   };
 
   return (
     <div className="App">
-      <HomeRoute toggleShowDetailsModal={ toggleShowDetailsModal } likes={ likes } handleLikeId={ handleLikeId } />
-      {showDetailsModal && modalPhotoData && <PhotoDetailsModal toggleShowDetailsModal={ toggleShowDetailsModal } data={ modalPhotoData } handleLikeId={ handleLikeId } /> }
+      <HomeRoute { ...homeRouteProps } />
+      {state.showDetailsModal && state.modalPhotoData && <PhotoDetailsModal { ...photoDetailsModalProps } /> }
     </div>
   );
 };

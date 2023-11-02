@@ -6,7 +6,6 @@ import topics from 'mocks/topics';
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
-  console.log(props.likes);
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
