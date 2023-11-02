@@ -4,6 +4,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
+  // console.log(props.data)
   const photoItems = props.data.map(photoData => {
     return <PhotoListItem key={ photoData.id } data={ photoData } addLikeId={ props.addLikeId } toggleShowDetailsModal={ props.toggleShowDetailsModal } />
   });
