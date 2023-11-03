@@ -9,7 +9,8 @@ const HomeRoute = (props) => {
   const photoListProps = {
     data: photos,
     handleLikeId: props.handleLikeId,
-    toggleShowDetailsModal: props.toggleShowDetailsModal
+    toggleShowDetailsModal: props.toggleShowDetailsModal,
+    state: props.state
   };
 
   return (

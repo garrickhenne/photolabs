@@ -5,8 +5,7 @@ import { ACTIONS } from "./reducer";
 const initialState = {
   showDetailsModal: false,
   modalPhotoData: {},
-  likes: [],
-  favorited: false
+  likes: []
 };
 
 export const useApplicationData = () => {
@@ -28,15 +27,9 @@ export const useApplicationData = () => {
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
   };
 
-  const favoritePhoto = (id) => {
-    dispatch({ type: ACTIONS.SET_FAV });
-    updateToFavPhotoIds(id);
-  };
-
   return {
     state: state,
     onPhotoSelect: setPhotoSelected,
-    updateToFavPhotoIds,
-    favoritePhoto
+    updateToFavPhotoIds
   };
 };

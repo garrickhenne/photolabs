@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
@@ -16,13 +16,15 @@ const App = () => {
   const homeRouteProps = {
     likes: state.likes,
     handleLikeId: updateToFavPhotoIds,
-    toggleShowDetailsModal: onPhotoSelect
+    toggleShowDetailsModal: onPhotoSelect,
+    state
   };
 
   const photoDetailsModalProps = {
     toggleShowDetailsModal: onPhotoSelect,
     data: state.modalPhotoData,
-    handleLikeId: updateToFavPhotoIds
+    handleLikeId: updateToFavPhotoIds,
+    state: state
   };
 
   return (

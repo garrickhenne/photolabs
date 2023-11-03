@@ -36,12 +36,5 @@ export const reducer = (state, action) => {
     };
   }
 
-  if (action.type === ACTIONS.SET_FAV) {
-    return {
-      ...state,
-      favorited: !state.favorited
-    };
-  }
-
   throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
 };
