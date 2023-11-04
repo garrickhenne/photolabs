@@ -7,7 +7,7 @@ function PhotoFavButton(props) {
   const [favorited, setFavorited] = useState(false);
 
   const handleClick = () => {
-    setFavorited(!favorited);
+    setFavorited((prev) => !prev);
     props.handleLikeId(props.id);
   }
 
