@@ -24,8 +24,9 @@ export const useApplicationData = () => {
 
     Promise.all([fetchPhotos, fetchTopics])
       .then(data => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: data[0] });
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, value: data[1] });
+        const [photoData, topicData] = data;
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: photoData });
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, value: topicData });
       });
   }, []);
 
