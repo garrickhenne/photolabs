@@ -7,10 +7,6 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
   const { id, urls: { full }, user: { name, profile }, location: { city, country }, similar_photos } = props.data;
-
-  const handleClickModalSimilarPhotos = () => {
-    // do nothing.
-  };
   
   return (
     <div className="photo-details-modal">
@@ -39,7 +35,7 @@ const PhotoDetailsModal = (props) => {
           Similar Photos
         </div>
 
-        <PhotoList data={ Object.values(similar_photos) } state={ props.state } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ handleClickModalSimilarPhotos } />
+        <PhotoList data={ Object.values(similar_photos) } state={ props.state } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ () => {} } />
       </div>
 
     </div>
