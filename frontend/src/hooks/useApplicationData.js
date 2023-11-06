@@ -19,12 +19,15 @@ export const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    // Call API for photos and topics.
     const fetchPhotos = fetch(API_ROUTES.GET_PHOTOS).then(res => res.json());
     const fetchTopics = fetch(API_ROUTES.GET_TOPICS).then(res => res.json());
 
     Promise.all([fetchPhotos, fetchTopics])
       .then(data => {
         const [photoData, topicData] = data;
+
+        // Update photo and topic states with data.
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: photoData });
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, value: topicData });
       });
@@ -48,6 +51,8 @@ export const useApplicationData = () => {
 
   const fetchPhotosByTopicId = (topicId) => {
     const urlWithTopicId = API_ROUTES.GET_PHOTOS_BY_TOPICS.replace(':topic_id', topicId);
+
+    // Call API for photos with given topic id and update photos state.
     fetch(urlWithTopicId)
       .then(res => res.json())
       .then(photos => {
