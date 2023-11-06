@@ -11,9 +11,15 @@ const HomeRoute = (props) => {
     state: props.state
   };
 
+  const topNavigationProps = {
+    likes: props.likes,
+    topics: props.state.topics,
+    handleTopicClick: props.handleTopicClick
+  };
+
   return (
     <div className="home-route">
-      <TopNavigation likes={ props.likes } topics={ props.state.topics } handleTopicClick={ props.handleTopicClick }/>
+      <TopNavigation { ...topNavigationProps } />
       <PhotoList { ...photoListProps } />
     </div>
   );

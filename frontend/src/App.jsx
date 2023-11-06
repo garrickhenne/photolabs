@@ -26,7 +26,7 @@ const App = () => {
     toggleShowDetailsModal: onPhotoSelect,
     data: state.modalPhotoData,
     handleLikeId: updateToFavPhotoIds,
-    state: state
+    state
   };
 
   return (

@@ -8,8 +8,7 @@ const PhotoList = (props) => {
     const photoListItemProps = {
       data: photoData,
       handleLikeId: props.handleLikeId,
-      toggleShowDetailsModal: props.toggleShowDetailsModal,
-      state: props.state
+      toggleShowDetailsModal: props.toggleShowDetailsModal
     };
 
     return <PhotoListItem key={ photoData.id } { ...photoListItemProps } />
