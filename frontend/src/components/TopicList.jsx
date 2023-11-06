@@ -5,7 +5,7 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
   const formattedTopics = props.data.map(topic => {
-    return <TopicListItem key={ topic.id } data={ topic } handleClick={ props.handleTopicClick }/>
+    return <TopicListItem key={ topic.id } data={ topic } handleClick={ props.handleTopicClick } />;
   });
 
   return (

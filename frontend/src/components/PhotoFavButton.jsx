@@ -9,12 +9,12 @@ function PhotoFavButton(props) {
   const handleClick = () => {
     setFavorited((prev) => !prev);
     props.handleLikeId(props.id);
-  }
+  };
 
   return (
     <div className="photo-list__fav-icon" onClick={ handleClick }>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={ favorited }/>
+        <FavIcon selected={ favorited } />
       </div>
     </div>
   );

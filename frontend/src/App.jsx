@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute { ...homeRouteProps } />
-      {showDetailsModal && modalPhotoData && <PhotoDetailsModal { ...photoDetailsModalProps } /> }
+      { showDetailsModal && modalPhotoData && <PhotoDetailsModal { ...photoDetailsModalProps } /> }
     </div>
   );
 };

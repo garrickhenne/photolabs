@@ -11,7 +11,7 @@ const PhotoList = (props) => {
       toggleShowDetailsModal: props.toggleShowDetailsModal
     };
 
-    return <PhotoListItem key={ photoData.id } { ...photoListItemProps } />
+    return <PhotoListItem key={ photoData.id } { ...photoListItemProps } />;
   });
 
   return (
