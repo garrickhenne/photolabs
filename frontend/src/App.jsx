@@ -16,17 +16,18 @@ const App = () => {
 
   const homeRouteProps = {
     likes: state.likes,
+    topics: state.topics,
+    photos: state.photos,
     handleLikeId: updateToFavPhotoIds,
     toggleShowDetailsModal: onPhotoSelect,
     handleTopicClick: fetchPhotosByTopicId,
-    state
   };
 
   const photoDetailsModalProps = {
-    toggleShowDetailsModal: onPhotoSelect,
     data: state.modalPhotoData,
+    photos: state.photos,
+    toggleShowDetailsModal: onPhotoSelect,
     handleLikeId: updateToFavPhotoIds,
-    state
   };
 
   return (

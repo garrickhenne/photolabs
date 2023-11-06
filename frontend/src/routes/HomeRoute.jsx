@@ -8,12 +8,12 @@ const HomeRoute = (props) => {
   const photoListProps = {
     handleLikeId: props.handleLikeId,
     toggleShowDetailsModal: props.toggleShowDetailsModal,
-    state: props.state
+    photos: props.photos
   };
 
   const topNavigationProps = {
     likes: props.likes,
-    topics: props.state.topics,
+    topics: props.topics,
     handleTopicClick: props.handleTopicClick
   };
 
