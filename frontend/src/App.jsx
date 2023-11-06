@@ -17,13 +17,15 @@ const App = () => {
     },
     onPhotoSelect,
     updateToFavPhotoIds,
-    fetchPhotosByTopicId
+    fetchPhotosByTopicId,
+    filterPhotos
   } = useApplicationData();
 
   const homeRouteProps = {
     likes,
     topics,
     photos,
+    filterPhotos,
     handleLikeId: updateToFavPhotoIds,
     toggleShowDetailsModal: onPhotoSelect,
     handleTopicClick: fetchPhotosByTopicId

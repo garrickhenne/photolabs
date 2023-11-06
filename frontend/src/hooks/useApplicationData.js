@@ -60,10 +60,22 @@ export const useApplicationData = () => {
       });
   };
 
+  const filterPhotos = (searchText) => {
+    if (searchText === '') {
+      return;
+    }
+    console.log(`Attempting to search for text with ${searchText}`);
+    // Perform some escaping or something
+
+    // Endpoint is /api/search/:text
+
+  };
+
   return {
     state: state,
     onPhotoSelect: setPhotoSelected,
     updateToFavPhotoIds,
-    fetchPhotosByTopicId
+    fetchPhotosByTopicId,
+    filterPhotos
   };
 };

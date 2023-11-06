@@ -11,7 +11,7 @@ const TopNavigation = (props) => {
       {/* Reload page to reset any topic filters when clicking logo. */ }
       <span className="top-nav-bar__logo" onClick={ () => window.location.reload() }>PhotoLabs</span>
       <TopicList data={ props.topics } handleTopicClick={ props.handleTopicClick } />
-      <SearchBar />
+      <SearchBar filterPhotos={ props.filterPhotos } />
       {/* Likes is an array of photo ids. */ }
       <FavBadge selected={ true } isFavPhotoExist={ props.likes.length } />
     </div>

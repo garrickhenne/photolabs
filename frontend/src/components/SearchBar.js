@@ -12,6 +12,7 @@ const SearchBar = (props) => {
     e.preventDefault();
     setText(e.target.value);
     // Call something props. call api to search over value.
+    props.filterPhotos(e.target.value);
   };
 
   return (
