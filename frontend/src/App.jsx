@@ -8,24 +8,30 @@ import { useApplicationData } from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    state,
+    state: {
+      likes,
+      topics,
+      photos,
+      modalPhotoData,
+      showDetailsModal
+    },
     onPhotoSelect,
     updateToFavPhotoIds,
     fetchPhotosByTopicId
   } = useApplicationData();
 
   const homeRouteProps = {
-    likes: state.likes,
-    topics: state.topics,
-    photos: state.photos,
+    likes,
+    topics,
+    photos,
     handleLikeId: updateToFavPhotoIds,
     toggleShowDetailsModal: onPhotoSelect,
-    handleTopicClick: fetchPhotosByTopicId,
+    handleTopicClick: fetchPhotosByTopicId
   };
 
   const photoDetailsModalProps = {
-    data: state.modalPhotoData,
-    photos: state.photos,
+    photos,
+    data: modalPhotoData,
     toggleShowDetailsModal: onPhotoSelect,
     handleLikeId: updateToFavPhotoIds,
   };
@@ -33,7 +39,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute { ...homeRouteProps } />
-      {state.showDetailsModal && state.modalPhotoData && <PhotoDetailsModal { ...photoDetailsModalProps } /> }
+      {showDetailsModal && modalPhotoData && <PhotoDetailsModal { ...photoDetailsModalProps } /> }
     </div>
   );
 };
