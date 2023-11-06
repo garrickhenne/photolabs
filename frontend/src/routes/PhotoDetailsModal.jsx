@@ -1,21 +1,17 @@
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
-import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
+import CloseModalViewButton from 'components/CloseModalViewButton';
 
 const PhotoDetailsModal = (props) => {
   const { id, urls: { full }, user: { name, profile }, location: { city, country }, similar_photos } = props.data;
 
   return (
     <div className="photo-details-modal">
-      <div className="photo-details-modal__top-bar">
-        <button className="photo-details-modal__close-button">
-          <img src={ closeSymbol } alt="close symbol" onClick={ props.toggleShowDetailsModal } />
-        </button>
-      </div>
-
+      <CloseModalViewButton toggleShowDetailsModal={ props.toggleShowDetailsModal } />
+      
       <div className="photo-details-modal__images">
 
         <PhotoFavButton handleLikeId={ props.handleLikeId } id={ id } />
