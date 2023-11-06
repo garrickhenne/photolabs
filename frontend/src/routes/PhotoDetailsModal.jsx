@@ -35,7 +35,7 @@ const PhotoDetailsModal = (props) => {
           Similar Photos
         </div>
 
-        <PhotoList data={ Object.values(similar_photos) } photos={ props.photos } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ () => {} } />
+        <PhotoList photos={ Object.values(similar_photos) } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ () => {} } />
       </div>
 
     </div>
