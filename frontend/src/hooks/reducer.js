@@ -3,8 +3,9 @@ export const ACTIONS = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_FAV: 'SET_FAV',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
 };
 
 export const reducer = (state, action) => {
@@ -33,6 +34,20 @@ export const reducer = (state, action) => {
     return {
       ...state,
       modalPhotoData: { ...action.value }
+    };
+  }
+
+  if (action.type === ACTIONS.SET_PHOTO_DATA) {
+    return {
+      ...state,
+      photos: action.value
+    };
+  }
+
+  if (action.type === ACTIONS.SET_TOPIC_DATA) {
+    return {
+      ...state,
+      topics: action.value
     };
   }
 

@@ -3,11 +3,9 @@ import React from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import photos from 'mocks/photos';
 
 const HomeRoute = (props) => {
   const photoListProps = {
-    data: photos,
     handleLikeId: props.handleLikeId,
     toggleShowDetailsModal: props.toggleShowDetailsModal,
     state: props.state
@@ -15,7 +13,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation likes={ props.likes }/>
+      <TopNavigation likes={ props.likes } topics={ props.state.topics } handleTopicClick={ props.handleTopicClick }/>
       <PhotoList { ...photoListProps } />
     </div>
   );

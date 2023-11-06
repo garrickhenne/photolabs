@@ -10,13 +10,15 @@ const App = () => {
   const {
     state,
     onPhotoSelect,
-    updateToFavPhotoIds
+    updateToFavPhotoIds,
+    fetchPhotosByTopicId
   } = useApplicationData();
 
   const homeRouteProps = {
     likes: state.likes,
     handleLikeId: updateToFavPhotoIds,
     toggleShowDetailsModal: onPhotoSelect,
+    handleTopicClick: fetchPhotosByTopicId,
     state
   };
 
