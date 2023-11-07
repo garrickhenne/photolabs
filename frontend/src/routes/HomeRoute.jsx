@@ -14,7 +14,8 @@ const HomeRoute = (props) => {
   const topNavigationProps = {
     likes: props.likes,
     topics: props.topics,
-    handleTopicClick: props.handleTopicClick
+    handleTopicClick: props.handleTopicClick,
+    filterPhotos: props.filterPhotos
   };
 
   return (
