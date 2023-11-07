@@ -5,6 +5,7 @@ const API_ROUTES = {
   GET_PHOTOS: "http://localhost:8001/api/photos",
   GET_TOPICS: "http://localhost:8001/api/topics",
   GET_PHOTOS_BY_TOPICS: "http://localhost:8001/api/topics/photos/:topic_id",
+  SEARCH_PHOTOS: "http://localhost:8001/api/search/:search"
 };
 
 const initialState = {
@@ -61,14 +62,13 @@ export const useApplicationData = () => {
   };
 
   const filterPhotos = (searchText) => {
-    if (searchText === '') {
-      return;
-    }
-    console.log(`Attempting to search for text with ${searchText}`);
-    // Perform some escaping or something
+    const formattedUrl = searchText !== '' ? API_ROUTES.SEARCH_PHOTOS.replace(':search', searchText) : API_ROUTES.GET_PHOTOS;
 
-    // Endpoint is /api/search/:text
-
+    fetch(formattedUrl)
+      .then(res => res.json())
+      .then(photos => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: photos || [] });
+      });
   };
 
   return {
