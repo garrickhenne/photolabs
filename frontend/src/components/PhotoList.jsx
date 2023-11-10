@@ -8,7 +8,9 @@ const PhotoList = (props) => {
     const photoListItemProps = {
       data: photoData,
       handleLikeId: props.handleLikeId,
-      toggleShowDetailsModal: props.toggleShowDetailsModal
+      toggleShowDetailsModal: props.toggleShowDetailsModal,
+      likes: props.likes,
+      isFavorited: props.isFavorited
     };
 
     return <PhotoListItem key={ photoData.id } { ...photoListItemProps } />;

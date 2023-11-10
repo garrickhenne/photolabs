@@ -14,7 +14,7 @@ const PhotoDetailsModal = (props) => {
       
       <div className="photo-details-modal__images">
 
-        <PhotoFavButton handleLikeId={ props.handleLikeId } id={ id } />
+        <PhotoFavButton handleLikeId={ props.handleLikeId } id={ id } likes={ props.likes } isFavorited={ props.isFavorited } />
         <img src={ full } alt="Enlarged version of clicked image" className='photo-details-modal__image' />
 
         <div className='photo-details-modal__header'>
@@ -31,7 +31,7 @@ const PhotoDetailsModal = (props) => {
           Similar Photos
         </div>
 
-        <PhotoList photos={ Object.values(similar_photos) } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ () => { } } />
+        <PhotoList photos={ Object.values(similar_photos) } handleLikeId={ props.handleLikeId } toggleShowDetailsModal={ () => { } } likes={ props.likes }  isFavorited={ props.isFavorited } />
       </div>
 
     </div>

@@ -2,9 +2,9 @@ import { useEffect, useReducer } from "react";
 import { reducer, ACTIONS } from "./reducer";
 
 const API_ROUTES = {
-  GET_PHOTOS: "http://localhost:8001/api/photos",
-  GET_TOPICS: "http://localhost:8001/api/topics",
-  GET_PHOTOS_BY_TOPICS: "http://localhost:8001/api/topics/photos/:topic_id",
+  GET_PHOTOS: "/api/photos",
+  GET_TOPICS: "/api/topics",
+  GET_PHOTOS_BY_TOPICS: "/api/topics/photos/:topic_id",
 };
 
 const initialState = {
@@ -60,10 +60,15 @@ export const useApplicationData = () => {
       });
   };
 
+  const isFavorited = (photoId) => {
+    return state.likes.includes(photoId);
+  };
+
   return {
     state: state,
     onPhotoSelect: setPhotoSelected,
     updateToFavPhotoIds,
-    fetchPhotosByTopicId
+    fetchPhotosByTopicId,
+    isFavorited
   };
 };
