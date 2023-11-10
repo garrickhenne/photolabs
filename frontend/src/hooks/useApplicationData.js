@@ -30,7 +30,8 @@ export const useApplicationData = () => {
         // Update photo and topic states with data.
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: photoData });
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, value: topicData });
-      });
+      })
+      .catch(error => console.error(error));
   }, []);
 
   const updateToFavPhotoIds = (id) => {
@@ -57,7 +58,8 @@ export const useApplicationData = () => {
       .then(res => res.json())
       .then(photos => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: photos });
-      });
+      })
+      .catch(err => console.err(err));
   };
 
   const isFavorited = (photoId) => {
